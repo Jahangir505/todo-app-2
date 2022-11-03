@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Todo\CategoryController;
+use App\Http\Controllers\Todo\TodoManageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('todos', TodoManageController::class);
+Route::resource('category', CategoryController::class);
