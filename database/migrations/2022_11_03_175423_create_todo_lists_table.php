@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('todo_lists', function (Blueprint $table) {
+        Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->mediumText('description')->nullable();
-            $table->bigInteger('cat_id');
+            $table->bigInteger('category_id');
+            $table->string('status')->default('incomplete');
             $table->timestamps();
         });
     }

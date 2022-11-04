@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Todo;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TodoRequest;
+use App\Http\Requests\Category\StoreRequest;
 use App\Models\Category;
-use App\Models\TodoList;
 use Exception;
 use Illuminate\Http\Request;
 
-class TodoManageController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +17,7 @@ class TodoManageController extends Controller
      */
     public function index()
     {
-        try {
-            $categories = Category::orderBy('title')->get();
-            $todo_list = TodoList::all();
-           return view('todo.todo-list', compact('categories', 'todo_list'));
-        }catch (Exception $e) {
-            return $e->getMessage();
-        }
+        //
     }
 
     /**
@@ -43,14 +36,15 @@ class TodoManageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TodoRequest $request)
+    public function store(StoreRequest $request)
     {
         try{
 
-            TodoList::create($request->all());
-            return redirect()->route('todos.index')->with('status', 'Todo Create Successfully');
+            Category::create($request->all());
+
+            return redirect()->route('todos.index')->with('status',"Category create successfully");
         }catch(Exception $e) {
-            return $e->getMessage();
+            return redirect()->route('todos.index')->with('status',$e->getMessage());
         }
     }
 
@@ -91,20 +85,16 @@ class TodoManageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Payment\TodoList
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TodoList $todolist)
+    public function destroy(Category $category)
     {
         try{
-            $todolist->delete();
-
-            return redirect()->route('todos.index')->with('alert', [
-                'type' => 'success',
-                'message' => 'Todo deleted successfully'
-            ]);
+            $category->delete();
+            return redirect()->route('todos.index')->with('status', 'Category delete succesfully');
         }catch(Exception $e) {
-            return $e->getMessage();
+            return redirect()->route('todos.index')->with('status', $e->getMessage());
         }
     }
 }

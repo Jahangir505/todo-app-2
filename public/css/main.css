@@ -43,6 +43,14 @@
   font-weight: 500;
 }
 
+.main-content .box .category-top ul li {
+  cursor: pointer;
+}
+
+.main-content .box .category-top ul li a {
+  text-decoration: none;
+}
+
 .main-content .box .category-top ul li + li {
   border-left: solid 1px black;
   padding-left: 10px;
@@ -64,12 +72,14 @@
   color: #282c34;
 }
 
-.main-content .box .todo-list .todo-item span {
+.main-content .box .todo-list .todo-item .delete-btn {
   font-size: 20px;
   font-family: "Poppins", serif;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   color: #282c34;
+  border: none;
+  background-color: transparent;
 }
 
 .main-content .box .h_r {
@@ -96,7 +106,7 @@
   font-family: "Poppins", serif;
 }
 
-.main-content .box button {
+.main-content .box .btn {
   padding: 10px 30px;
   margin-top: 32px;
   background: #444444;
@@ -127,11 +137,13 @@
   color: #282c34;
 }
 
-.main-content .box .categories .category-item span {
+.main-content .box .categories .category-item .delete-btn {
   font-size: 20px;
-  color: red;
-  font-weight: 500;
-  margin-top: -5px;
+  font-family: "Poppins", serif;
+  font-weight: 600;
   cursor: pointer;
+  color: #ff0505;
+  border: none;
+  background-color: transparent;
 }
 /*# sourceMappingURL=main.css.map */
