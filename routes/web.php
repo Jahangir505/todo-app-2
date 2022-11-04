@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('todos', TodoController::class)->except('create', 'show', 'edit');
+Route::resource('categories', CategoryController::class)->except('index', 'create', 'show', 'edit');
+Route::post('/todos/update-status/{id}', [TodoController::class, 'updateStatus']);

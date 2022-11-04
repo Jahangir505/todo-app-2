@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.main-content {
+  background: blue;
+  padding: 30px;
+  width: 700px;
+  margin: 0 auto;
+}
+
+.main-content p,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4 {
+  font-family: "Poppins", serif;
+}
+
+.main-content .box {
+  background: white;
+  padding: 50px 40px;
+  border-radius: 10px;
+}
+
+.main-content .box h2 {
+  font-size: 30px;
+  color: #a0a0a0;
+}
+
+.main-content .box .category-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Poppins", serif;
+}
+
+.main-content .box .category-top ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: blue;
+  gap: 10px;
+  list-style: none;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+}
+
+.main-content .box .category-top ul li {
+  cursor: pointer;
+}
+
+.main-content .box .category-top ul li a {
+  text-decoration: none;
+}
+
+.main-content .box .category-top ul li + li {
+  border-left: solid 1px black;
+  padding-left: 10px;
+}
+
+.main-content .box .todo-list .todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  font-family: "Poppins", serif;
+  font-weight: 500;
+  color: #282c34;
+}
+
+.main-content .box .todo-list .todo-item .delete-btn {
+  font-size: 20px;
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  cursor: pointer;
+  color: #282c34;
+  border: none;
+  background-color: transparent;
+}
+
+.main-content .box .h_r {
+  margin: 20px 0;
+  border-color: #282c34;
+  background-color: #282c34;
+  height: 2px;
+}
+
+.main-content .box input[type="text"],
+.main-content .box select {
+  width: 100%;
+  padding: 10px;
+  background: #e8e8e8;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: #000000;
+  margin-top: 8px;
+}
+
+.main-content .box label {
+  font-weight: 500;
+  font-family: "Poppins", serif;
+}
+
+.main-content .box .btn {
+  padding: 10px 30px;
+  margin-top: 32px;
+  background: #444444;
+  border: none;
+  border-radius: 5px;
+  font-family: "Poppins", serif;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.main-content .box .categories {
+  margin-top: 10px;
+}
+
+.main-content .box .categories .category-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-content .box .categories .category-item h4 {
+  font-size: 17px;
+  margin: 0;
+  color: #282c34;
+}
+
+.main-content .box .categories .category-item .delete-btn {
+  font-size: 20px;
+  font-family: "Poppins", serif;
+  font-weight: 600;
+  cursor: pointer;
+  color: #ff0505;
+  border: none;
+  background-color: transparent;
+}
+/*# sourceMappingURL=main.css.map */
