@@ -3,6 +3,11 @@
     <x-slot:title>Todo list</x-slot:title>
 
     <div class="">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         <h2>To Do List</h2>
         <div class="category-top">
             <p>Show category:</p>
@@ -16,7 +21,7 @@
         </div>
         <div class="todo-list">
             @foreach ($todo_list as $item)
-                <x-utilities.todo.listItem label="{{ $item->title }}" name="Name"   />
+                <x-utilities.todo.listItem label="{{ $item->title }}" data-id="{{ $item->id }}" class="todo"   />
             @endforeach
         </div>
         <hr class="h_r" />
@@ -60,4 +65,25 @@
             @endforeach
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(".todo").click(function() {
+            // alert();
+            const id = $(this).data("id");
+            $.ajax(
+                {
+                    url: "",
+                    type: 'DELETE',
+                    data: {
+                        'id': id,
+                        '_token': $('meta[name=csrf-token]').attr("content"),
+                    },
+                    success: function () {
+                        console.log("it Works");
+                    }
+                })
+        });
+    </script>
 </x-layout.master>
+
+

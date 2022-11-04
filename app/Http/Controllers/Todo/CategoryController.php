@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Exception;
 use Illuminate\Http\Request;
@@ -35,19 +36,13 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
         try{
-            $request->validate([
-                'title' => 'required | string | max:255',
-            ]);
 
             Category::create($request->all());
 
-            return redirect()->route('todos.index')->with('alert', [
-                'type' => 'success',
-                'message' => 'Category added successfully'
-            ]);
+            return redirect()->route('todos.index')->with('status',"Category create successfully");
         }catch(Exception $e) {
             return $e->getMessage();
         }

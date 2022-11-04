@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Todo;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TodoRequest;
 use App\Models\Category;
 use App\Models\TodoList;
 use Exception;
@@ -42,20 +43,12 @@ class TodoManageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TodoRequest $request)
     {
         try{
-            $request->validate([
-                'title' => 'required | string | max:255',
-                'cat_id' => 'required',
-            ]);
 
             TodoList::create($request->all());
-
-            return redirect()->route('todos.index')->with('alert', [
-                'type' => 'success',
-                'message' => 'Todo created successfully'
-            ]);
+            return redirect()->route('todos.index')->with('status', 'Todo Create Successfully');
         }catch(Exception $e) {
             return $e->getMessage();
         }
